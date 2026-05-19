@@ -8,7 +8,7 @@ Most RAG tutorials use Paul Graham essays or Wikipedia dumps. I wanted to use so
 
 The corpus is small on purpose. Three documents, six chunks, two embedded resumes and one cover letter. Enough to test the pipeline; small enough that I could read every retrieved result by hand and judge whether the system was actually working.
 
-##How it works
+## How it works
 
 Three scripts, in order:
 
@@ -24,7 +24,7 @@ generate.py calls retrieve.py, formats the top chunks into a context block, and 
 
 No frameworks. No LangChain, no LlamaIndex. The whole thing is about 100 lines of Python and three API calls.
 
-##What I learned building it
+## What I learned building it
 
 A few things I didn't expect.
 
@@ -36,7 +36,7 @@ Filename metadata is half the value. I almost didn't include it. The first versi
 
 The naive chunker is fine. I spent zero effort on a sophisticated chunker. Split on \\n\\n, batch paragraphs until \~500 tokens, ship it. There are obvious problems with this — bullet points become tiny chunks, dense paragraphs don't get split — but for a corpus this small, the chunker wasn't the bottleneck. I'd been told to expect chunking to be the hardest part of RAG; in practice, distance metric selection mattered more.
 
-##What's broken or limited
+## What's broken or limited
 
 A short and honest list:
 
@@ -54,11 +54,11 @@ Manual .txt conversion. I had to copy-paste from Word docs into Notepad to get c
 
 
 
-##What's next
+## What's next
 
 In rough order: expand the corpus to 15–20 applications and see if retrieval quality genuinely improves; rewrite the chunker to use tiktoken and respect document structure; add a chat loop so follow-up questions work; add hybrid retrieval (BM25 alongside embeddings) for exact keyword queries. If those go well, the system becomes the actual primary interface I use when applying for things — which is the test of whether this was worth building.
 
-##Setup
+## Setup
 
 ```
 git clone https://github.com/jrlexineer/rag-application-search.git
