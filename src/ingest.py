@@ -12,7 +12,10 @@ client = OpenAI()
 
 # Set up persistent ChromaDB storage on disk
 chroma_client = chromadb.PersistentClient(path="./data/processed/chroma")
-collection = chroma_client.get_or_create_collection("applications")
+collection = chroma_client.get_or_create_collection(
+    "applications",
+    metadata={"hnsw:space": "cosine"}
+)
 
 
 def chunk_text(text, max_tokens=500):

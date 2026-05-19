@@ -7,7 +7,10 @@ load_dotenv()
 
 client = OpenAI()
 chroma_client = chromadb.PersistentClient(path="./data/processed/chroma")
-collection = chroma_client.get_or_create_collection("applications")
+collection = chroma_client.get_or_create_collection(
+    "applications",
+    metadata={"hnsw:space": "cosine"}
+)
 
 
 def embed_query(query):
