@@ -1,6 +1,6 @@
 # rag-application-search
 
-A retrieval-augmented search system over my own job application materials — resumes, cover letters, and supplemental answers from the last few weeks. I built it in about an hour \[DATE/CONTEXT — "as a forcing function to learn RAG" / "on a Sunday afternoon" / etc.], and it immediately did something useful: when I asked it which application talked about Gorgias, it noticed that the file named cover-letter-GORGIAS.txt was actually addressed to Vouch. That's the kind of self-audit I couldn't have gotten from grep.
+A retrieval-augmented search system over my own job application materials — resumes, cover letters, and supplemental answers from the last few weeks. I built it in about an hour, and it immediately did something useful: when I asked it which application talked about Gorgias, it noticed that the file named cover-letter-GORGIAS.txt was actually addressed to Vouch. That's the kind of self-audit I couldn't have gotten from grep.
 
 ## Why this corpus
 
