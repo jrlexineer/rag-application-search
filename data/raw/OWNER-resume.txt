@@ -1,0 +1,32 @@
+Joshua Tseng
+San Mateo, CA 94402 | (650) 670-6778 | jrtseng13@gmail.com | www.linkedin.com/in/joshtseng-aiops | miyamotoai.com
+
+
+PROFESSIONAL SUMMARY
+Applied AI builder with 4 years of 0-to-1 operations experience and 1+ year shipping production LLM systems. At miyamotoai.com, build AI agents and workflows end-to-end: prompt design, structured output, evaluation frameworks, and integration with REST APIs and OAuth2. Previously partnered with senior leadership across 120+ accounts at Yo-Kai Express, designing analytical frameworks executives acted on. Move fast, work scrappy, dig into root causes. 
+
+
+PROFESSIONAL EXPERIENCE    		                         		                              San Francisco, CA
+AI Operations Consultant and Founder         |      Josh AI Solutions / miyamotoai.com       |       January  2026 - Present 
+Build LLM-powered systems end-to-end for a Bay Area client: own the problem definition, the architecture, and the outcomes. Took the engagement from vague "I need help with email triage" to shipped Claude API system in 30 days, cutting admin overhead by roughly 80%.
+Treat every build as a 0-1 problem solved from scratch: discovery → prompt architecture → agent decision logic → integration build → deployment → eval loop based on real production signals versus assumed criteria.
+Build AI solutions independently with structured output and context engineering: Python middleware, Claude API scoring logic, multi-step agent orchestration, OAuth2 authentication, custom integrations across Gmail and Google Sheets, self-hosted Linux VPS deployment. Functionality integrating the models and APIs themselves, not just AI-enabled tooling.
+Develop evaluation frameworks for production Claude systems: define rubrics that capture stakeholder priorities, construct labeled datasets from real production traffic, and run evals against new prompt versions before they hit production. Dig into root causes rather than symptoms:  caught a rubric mismatch in week one that the model couldn't have surfaced alone.
+Shipped miyamotoai.com, a 4-agent React 19 and TypeScript platform, from discovery to live deployment in 30 days.
+
+Business Operations Analyst            |                 Yo-Kai Express LLC                   |                     June 2020 - January 2024 
+Operated in 0-1 mode across 120+ accounts and 8 enterprise sites at a high-growth food tech startup, building analytical infrastructure and reporting systems where none existed.
+Designed targeting and risk frameworks that lifted conversion 30% by digging into root causes;  redefined qualification logic against what data actually showed versus what sales leadership assumed was true.
+Built Salesforce CRM dashboards and executive reporting infrastructure, replacing manual processes with automated workflows.
+
+
+EDUCATION	
+B.A. Economics, Minor: International Relations          |   Boston University   |   Boston, MA                       May 2025
+
+
+SKILLS	
+Applied AI: Claude API, GPT-4o, Cursor, Claude Code; LLM agent design; structured output; context engineering; evaluation frameworks; prompt architecture; production AI deployment
+Programming: Python, TypeScript, JavaScript, React 19, SQL
+0-1 Operations: End-to-end project ownership; ambiguity to ruthlessly prioritized roadmap; cross-functional execution; technical communication for non-technical teammates
+Systems and Integration: REST APIs, OAuth2, webhooks; Postgres, Docker, Linux VPS; Salesforce CRM
+Languages: English (native), Mandarin (fluent)

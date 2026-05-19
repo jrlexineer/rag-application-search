@@ -1,0 +1,32 @@
+Joshua Tseng
+San Mateo, CA 94402 | (650) 670-6778 | jrtseng13@gmail.com | www.linkedin.com/in/joshtseng-aiops | miyamotoai.com
+
+
+PROFESSIONAL SUMMARY
+Technical builder with 4 years of customer-facing experience and 1+ year shipping production AI systems end-to-end. At miyamotoai.com, own the technical lifecycle for a Bay Area client: discovery, build, deployment, adoption, and iteration on a Claude API integration that cut admin overhead by roughly 80%. Previously partnered with senior leadership across 120+ accounts at Yo-Kai Express. Self-directed founder profile, comfortable in ambiguity, fluent in Python and TypeScript.
+
+
+PROFESSIONAL EXPERIENCE    		                         		                              San Francisco, CA
+AI Operations Consultant and Founder         |      Josh AI Solutions / miyamotoai.com       |       January  2026 - Present 
+Own all technical aspects of the customer lifecycle for a Bay Area client: discovery, deployment, activation, and ongoing iteration on a Gmail + Claude API + custom scoring system that cut admin email overhead by roughly 80%.
+Build full-stack production systems in Python and TypeScript, integrating Claude API with Gmail API, OAuth2, webhooks, and custom middleware running on a self-hosted Linux VPS.
+Build deep relationships with the executive stakeholder, identifying high-impact use cases and prototyping solutions that turn the system from a one-off engagement into a repeat scope.
+Shipped miyamotoai.com, a 4-agent React 19 and TypeScript platform, from discovery to live client deployment in 30 days. Iterate prompts and agent architecture based on real production usage rather than synthetic test flows.
+
+Business Operations Analyst            |                 Yo-Kai Express LLC                   |                     June 2020 - January 2024 
+Managed 120+ accounts across 8 enterprise sites, partnering with senior leadership to translate operational complexity into shipped tooling and account strategy.
+Built Salesforce CRM dashboards and executive reporting infrastructure, replacing manual processes with automated workflows that gave leadership real-time visibility.
+Designed targeting and risk frameworks that lifted conversion 30% across the account base, presenting methodology directly to senior leadership.
+
+
+EDUCATION	
+B.A. Economics, Minor: International Relations          |   Boston University   |   Boston, MA                       May 2025
+
+
+SKILLS	
+Engineering: Python, TypeScript, JavaScript, React 19, Node.js-compatible stacks, HTML/CSS
+AI Systems and LLM Work: Claude API, GPT-4o, Cursor, Claude Code; advanced prompt engineering; agent architecture; evaluation frameworks; LLM integration patterns
+APIs and Integration: REST APIs, OAuth2, webhooks, Gmail API, Google Sheets API, n8n; production system deployment
+Customer-Facing Technical Work: Technical discovery and scoping; end-to-end customer lifecycle ownership; executive stakeholder management; translating complex technical concepts for non-technical audiences
+Infrastructure: Docker, Postgres, Linux VPS, Caddy SSL, Cloudflare, SQL, Salesforce CRM
+Languages: English (native), Mandarin (fluent)

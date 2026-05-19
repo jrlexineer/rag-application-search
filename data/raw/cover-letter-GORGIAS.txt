@@ -1,0 +1,11 @@
+JOSHUA TSENG
+jrtseng13@gmail.com | 650-670-6778
+www.linkedin.com/in/joshtseng-aiops | miyamotoai.com  
+May 1, 2026
+I am applying for the Senior Product Manager, Platform AI role. Vouch is building a system that extracts structured intelligence from professional judgment, which is exactly the problem I am solving at miyamotoai.com.
+I am currently building an evaluation harness for a production Claude deployment. The rubric is not measuring the model anymore; it is surfacing the contradictions in the executive's own decision-making patterns. The system is proving that their stated success criteria and their actual behavior disagree. The challenge: make the "schema of human judgment" legible so AI can learn from it, has been the primary focus of my work.
+Before my founder work, I spent four years at Yo-Kai Express owning the Salesforce data architecture across 120+ accounts. I learned that most operational problems that appear to be process or volume issues are actually schema problems underneath. An expert analyst does not just report on those problems; they make the underlying schema legible to the people making decisions.
+I have two questions: When the system plateaus, what instrumentation or signals does your pod use to determine whether the problem is the data extraction or a fundamental flaw in the broker’s underlying judgment pattern? And how do you enforce a "truth over confirmation" standard when the team is pressured to hit delivery?
+
+Best,
+Joshua Tseng
