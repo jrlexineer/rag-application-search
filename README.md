@@ -22,7 +22,7 @@ generate.py calls retrieve.py, formats the top chunks into a context block, and 
 
 
 
-No frameworks. No LangChain, no LlamaIndex. The whole thing is about 100 lines of Python and three API calls.
+Sans frameworks, LangChain, LlamaIndex. The whole thing is about 100 lines of Python and three API calls.
 
 ## What I learned building it
 
