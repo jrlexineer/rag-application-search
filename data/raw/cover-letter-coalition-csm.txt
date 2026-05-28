@@ -1,0 +1,7 @@
+JOSHUA TSENG jrtseng13@gmail.com | 650-670-6778 www.linkedin.com/in/joshtseng-aiops | miyamotoai.com
+May 1, 2026
+I'm currently building an evaluation harness for the production Claude system I deployed at miyamotoai.com. The rubric keeps revealing where the customer’s stated success criteria and actual decision making patterns disagree, which is surfacing where their internal mental model is inconsistent. This challenge (translating institutional knowledge into formats that tools can interpret accurately) is precisely how I see Coalition’s mission to help businesses mitigate risk through more educated, robust insights.
+Before founder work, four years at Yo-Kai Express owning the Salesforce data architecture and reporting layer across 120+ accounts. I have found that most operational problems that look like volume or process issues are actually schema problems underneath, and an expert analyst makes the schema legible to the people making decisions on it.
+I’m curious: which categories of business questions have turned out to be the hardest to encode into the Coalition platform reliably, and where has the team had to choose between making the system more autonomous versus keeping a human in the loop?
+Best,
+Joshua Tseng

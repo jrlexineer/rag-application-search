@@ -1,0 +1,8 @@
+Q: which company was the cover letter actually written for?
+A: cover-letter-GORGIAS.txt
+
+Q: which resume emphasizes customer-facing deployment and enterprise delivery?
+A: cognition-resume.txt
+
+Q: which resume goes deepest on the technical stack and building solutions?
+A: OWNER-resume.txt

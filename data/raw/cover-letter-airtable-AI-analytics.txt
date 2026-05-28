@@ -1,0 +1,8 @@
+JOSHUA TSENG jrtseng13@gmail.com | 650-670-6778 www.linkedin.com/in/joshtseng-aiops | miyamotoai.com
+April 29, 2026
+I'm currently building an evaluation harness for the production Claude system I deployed at miyamotoai.com. The interesting part isn't the eval infrastructure, it's that the rubric keeps revealing where the executive's stated success criteria and his actual decision-making patterns disagree. The eval isn't measuring the model anymore, it's surfacing where the customer's mental model is inconsistent with itself. That problem is exactly what the JD is describing when it talks about translating institutional business knowledge into structured formats that AI tools can interpret accurately.
+Before founder work, four years at Yo-Kai Express owning the Salesforce data architecture and reporting layer across 120+ accounts. My main takeaway, thus far, at miyamotoai is that most operational problems that look like volume, performance, or process issues are actually schema problems underneath. An expert analyst makes the schema legible to the people making decisions on it.
+The Airtable role is interesting specifically because it's pre-playbook. Most analytics engineer roles want someone who knows the established practices. This one explicitly says best practices don't exist yet and the work is shaping them. That's the work I want to do, and the eval harness I'm already building solo is the smaller version of it.
+I’m curious: which categories of business questions have turned out to be the hardest to encode into the AI business Context layer reliably, and where the team has had to choose between making the AI more autonomous versus keeping a human in the loop?
+Best,
+Joshua Tseng

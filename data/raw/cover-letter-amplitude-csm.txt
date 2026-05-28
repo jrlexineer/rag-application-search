@@ -1,0 +1,7 @@
+JOSHUA TSENG jrtseng13@gmail.com | 650-670-6778 www.linkedin.com/in/joshtseng-aiops | miyamotoai.com
+April 29, 2026
+The "Claude experience is a huge plus" line in the job description caught my attention, because it's rare to see a Customer Success role explicitly value LLM fluency, and that combination (high-volume CS in tandem with hands-on Claude work) is exactly the shape of my background.
+At Yo-Kai Express I managed 120+ accounts across 8 enterprise sites for nearly four years, building the Salesforce dashboards, customer health monitoring, and risk frameworks that senior leadership used to identify at-risk accounts before they churned. The framework I'm proudest of lifted conversion 30% by redefining qualification logic against what the data actually showed versus what sales leadership assumed was true. For the last year I've been running miyamotoai.com, where I serve as primary advisor to a Bay Area client on Claude API workflow design and run lightweight executive reviews on the system's performance. Although I don’t have a traditional CS-titled role on my resume, I do possess equal merit and experience with the specific substance of the work (analyst and founder work as CSM-adjacent).
+I’m curious: which adoption signals at Amplitude have actually predicted Velocity retention versus the ones that looked predictive early, but didn’t hold?
+Best,
+Joshua Tseng

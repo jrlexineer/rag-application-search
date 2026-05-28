@@ -1,0 +1,20 @@
+Joshua Tseng San Mateo, CA 94402 | (650) 670-6778 | jrtseng13@gmail.com | www.linkedin.com/in/joshtseng-aiops | miyamotoai.com
+PROFESSIONAL SUMMARY Applied AI builder with 4 years of customer-facing experience and 1+ year shipping production agentic systems. At miyamotoai.com, design and operate Claude-powered workflows in production: prompt design, retrieval logic, evaluation frameworks, deployment, and iteration based on live usage. Comfortable across Python and TypeScript, fluent in tradeoffs between LLM approaches and traditional logic when designing reliable systems.
+PROFESSIONAL EXPERIENCE San Francisco, CA
+AI Operations Consultant and Founder | Josh AI Solutions / miyamotoai.com | January 2026 - Present
+● Build and ship agentic AI systems end-to-end: a Gmail + Claude API + custom scoring pipeline for a Bay Area client that handles inbound triage, draft generation, and routing in production. Owned data pipeline, prompt design, deployment, monitoring, and iteration.
+● Design evaluation frameworks that measure real-world performance: constructing labeled datasets from production traffic, defining rubrics that capture stakeholder priorities, and running evals against new prompt versions before they hit production.
+● Make tradeoffs between LLM approaches and traditional logic; when to use Claude scoring vs. deterministic rules, when to invest in retrieval vs. few-shot prompting, when to optimize for latency vs. reliability.
+● Shipped miyamotoai.com, a 4-agent React 19 and TypeScript platform powering distinct AI workflows (prompt engineering, architecture review, UI critique, infrastructure ops), from discovery to live deployment in 30 days.
+Business Operations Analyst | Yo-Kai Express LLC | June 2020 - January 2024
+● Built Salesforce CRM dashboards and ranking/scoring frameworks across 120+ accounts and 8 enterprise sites, replacing manual processes with automated workflows.
+● Designed targeting and risk frameworks that lifted conversion 30% by redefining qualification logic against what data actually showed versus what leadership assumed.
+● Partnered cross-functionally with sales, finance, and ops to translate business metrics into shipped tooling.
+EDUCATION
+B.A. Economics, Minor: International Relations | Boston University | Boston, MA May 2025
+SKILLS
+AI Engineering: Claude API, GPT-4o, Cursor, Claude Code; advanced prompt engineering; agentic workflow design; retrieval and few-shot patterns; evaluation frameworks; production AI deployment
+Programming: Python, TypeScript, JavaScript, React 19, Node.js-compatible stacks
+Systems and Integration: REST APIs, OAuth2, webhooks; Postgres, Docker, Linux VPS; Salesforce CRM; SQL; n8n
+Cross-Functional: Technical communication for non-technical stakeholders; 0-to-1 environment ownership; cross-functional collaboration
+Languages: English (native), Mandarin (fluent)
