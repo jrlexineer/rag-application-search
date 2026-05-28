@@ -20,7 +20,7 @@ def embed_query(query):
         input=query
     ).data[0].embedding
 
-
+# Does the work, returns the data
 def retrieve(query, k=3):
     """Return the top-k most similar chunks to the query."""
     query_embedding = embed_query(query)
@@ -39,7 +39,7 @@ def retrieve(query, k=3):
         })
     return hits
 
-
+# only runs when you call the file directly from terminal.
 if __name__ == "__main__":
     # Take query from command line, or use a default
     if len(sys.argv) > 1:
