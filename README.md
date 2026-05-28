@@ -58,6 +58,9 @@ Manual .txt conversion. I had to copy-paste from Word docs into Notepad to get c
 
 In rough order: expand the corpus to 15–20 applications and see if retrieval quality genuinely improves; rewrite the chunker to use tiktoken and respect document structure; add a chat loop so follow-up questions work; add hybrid retrieval (BM25 alongside embeddings) for exact keyword queries. If those go well, the system becomes the actual primary interface I use when applying for things — which is the test of whether this was worth building.
 
+(5/27/26)
+Baseline MRR 0.569, recall@1 0.259, recall@3 0.630 on 7 docs / 9 questions, clean corpus. Failures concentrated in concept queries without distinctive keyword anchors — hybrid search is the predicted next lever.
+
 ## Setup
 
 ```
