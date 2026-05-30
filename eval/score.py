@@ -1,6 +1,6 @@
 ﻿import sys
 sys.path.append("src")
-from retrieve import retrieve
+from retrieve import hybrid_retrieve as retrieve
 
 ANSWER_KEY = [
     {"query": "which application explicitly mentions Claude API workflow design",
