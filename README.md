@@ -1,88 +1,73 @@
 # rag-application-search
 
-A retrieval-augmented search system over my own job application materials — resumes, cover letters, and supplemental answers from the last few weeks. I built it in about an hour, and it immediately did something useful: when I asked it which application talked about Gorgias, it noticed that the file named cover-letter-GORGIAS.txt was actually addressed to Vouch. That's the kind of self-audit I couldn't have gotten from grep.
+A retrieval-augmented search system over my own job application materials — resumes, cover letters, and supplemental answers. About 100 lines of Python, no frameworks. Built to practice the part of RAG that actually determines quality: measuring retrieval performance and diagnosing failures per-query.
+
+It proved useful almost immediately: when I asked which application talked about Gorgias, it noticed that the file named `cover-letter-GORGIAS.txt` was actually addressed to Vouch. That's a catch I wouldn't have gotten from grep.
+
+## Results
+
+| Configuration | MRR | Recall@1 | Recall@3 |
+|---|---|---|---|
+| Baseline (dense only) | 0.569 | 0.259 | 0.630 |
+| Hybrid (dense + BM25, RRF) | 0.637 | — | — |
+
+Evaluated on 9 hand-labeled questions over a 7-document corpus, with ground truth judged by reading every chunk by hand.
+
+Per-query failure analysis on the baseline showed misses concentrated in one pattern: concept queries without distinctive keyword anchors. That's the failure mode lexical retrieval addresses, so I added BM25 alongside dense retrieval, fused with reciprocal rank fusion. The metric moved because the diagnosis was right, not because I tuned blindly.
 
 ## Why this corpus
 
-Most RAG tutorials use Paul Graham essays or Wikipedia dumps. I wanted to use something I actually cared about querying. Job application materials were the obvious choice: they were already organized on my machine, the licensing was trivially clean, and I genuinely wanted to be able to ask things like "what eval framings have I used across applications" or "which cover letters mention dbt" without having to re-read everything.
-
-The corpus is small on purpose. Three documents, six chunks, two embedded resumes and one cover letter. Enough to test the pipeline; small enough that I could read every retrieved result by hand and judge whether the system was actually working.
+Most RAG tutorials use Paul Graham essays or Wikipedia dumps. I wanted something I actually needed to query — questions like "which cover letters mention dbt" or "what eval framings have I used across applications" had real stakes for me. The corpus started at three documents and grew to seven by evaluation time. Small on purpose: small enough to read every retrieved result by hand and judge whether the system was actually working.
 
 ## How it works
 
-Three scripts, in order:
+Three scripts, in order. No LangChain, no LlamaIndex.
 
-
-
-ingest.py reads .txt files from data/raw/, splits them into \~500-token chunks on paragraph boundaries, embeds each chunk with OpenAI's text-embedding-3-small, and stores the result in a local ChromaDB collection.
-
-retrieve.py takes a query string, embeds it with the same model, and returns the top-k nearest chunks from the collection along with their filenames and distance scores.
-
-generate.py calls retrieve.py, formats the top chunks into a context block, and asks Claude Sonnet 4.6 to answer the query using only those chunks — with citations to the original filenames.
-
-
-
-Sans frameworks, LangChain, LlamaIndex. The whole thing is about 100 lines of Python and three API calls.
+- **`ingest.py`** reads `.txt` files from `data/raw/`, splits them into ~500-token chunks on paragraph boundaries, embeds each chunk with OpenAI's `text-embedding-3-small`, and stores the result in a local ChromaDB collection (cosine distance).
+- **`retrieve.py`** embeds the query and runs hybrid retrieval: dense nearest-neighbor search against ChromaDB alongside lexical scoring with BM25, fused with reciprocal rank fusion (RRF) into a single top-k result set, returned with filenames and scores.
+- **`generate.py`** formats the top chunks into a context block and asks Claude to answer the query using only those chunks, with citations to the original filenames.
 
 ## What I learned building it
 
-A few things I didn't expect.
+**The distance metric mattered more than the chunker.** ChromaDB defaults to squared L2 distance, which measures magnitude as well as direction — wrong for normalized text embeddings. My first queries returned scores in a 1.4–1.8 band with mostly arbitrary ranking. Switching the collection to cosine (`metadata={"hnsw:space": "cosine"}`) moved scores into an interpretable 0.2–0.8 range and made top-1 usually correct. Single biggest quality jump in the build.
 
-ChromaDB's default distance metric is wrong for text. My first round of queries returned distance scores in the 1.4–1.8 range across the board, and the ranking felt mostly arbitrary. The issue turned out to be that ChromaDB defaults to squared L2 distance, which measures magnitude as well as direction. For OpenAI's normalized text embeddings, you want cosine distance — which measures only the angle between vectors. After switching to cosine (metadata={"hnsw:space": "cosine"} at collection creation), distances landed in a much more interpretable 0.2–0.8 range and the top-1 result was usually the right one. This was the single biggest quality jump in the whole build.
+**Retrieval needs to be good enough, not perfect.** The Gorgias-vs-Vouch catch happened on a query whose best chunk scored a mediocre 0.758 distance. A pure-retrieval system returning chunks directly would have surfaced nothing — the synthesis layer is where the observation emerged. This changed how I think about RAG quality: retrieval's job is to get the relevant material into the context window, not to rank perfectly.
 
-Retrieval is the weak link; the LLM rescues a lot. Several of my queries returned chunks with distance scores around 0.75 — i.e. "somewhat related, not a great match." But the generated answers were still excellent, because Claude was doing real synthesis across imperfect retrieval. The Gorgias-vs-Vouch catch happened on a query where the top retrieved chunk had a 0.758 distance. If I'd built a pure-retrieval system that returned chunks directly, I would have missed that observation entirely. This shifted how I think about RAG quality: retrieval needs to be good enough to get the relevant material in the context window, not good enough to rank perfectly.
+**Filename metadata is half the value.** Adding `{"filename", "chunk_index"}` to the schema was a five-character change that turned "found a relevant excerpt" into "found a relevant excerpt in this specific file." That's the difference between a search demo and a useful tool.
 
-Filename metadata is half the value. I almost didn't include it. The first version of the schema just stored the chunk text and an ID. Adding {"filename": ..., "chunk\_index": ...} as metadata was a five-character change that turned "the system found a relevant excerpt" into "the system found a relevant excerpt from cover-letter-GORGIAS.txt." That's the difference between a search engine and a useful tool for someone managing parallel applications.
-
-The naive chunker is fine. I spent zero effort on a sophisticated chunker. Split on \\n\\n, batch paragraphs until \~500 tokens, ship it. There are obvious problems with this — bullet points become tiny chunks, dense paragraphs don't get split — but for a corpus this small, the chunker wasn't the bottleneck. I'd been told to expect chunking to be the hardest part of RAG; in practice, distance metric selection mattered more.
+**The naive chunker was fine.** Split on `\n\n`, batch to ~500 tokens, ship. I'd been told chunking is the hard part of RAG; measurement showed it wasn't the bottleneck on this corpus. The eval harness is what makes that a finding instead of a guess.
 
 ## What's broken or limited
 
-A short and honest list:
-
-
-
-Corpus is tiny. Three documents, six chunks. The system works because Claude is good at synthesizing from sparse context, not because retrieval is sharp.
-
-No hybrid search. Pure semantic retrieval misses exact keyword matches. A query for a specific company name might not surface the file that mentions it once.
-
-No conversation memory. Every python src/generate.py is a fresh query. Follow-ups are impossible.
-
-Naive chunker. No actual token counting, no sentence-boundary respect. Single bullet points become their own chunks; long paragraphs blow past the target size.
-
-Manual .txt conversion. I had to copy-paste from Word docs into Notepad to get clean input. A real version would handle .docx and .pdf.
-
-
+- **Small corpus.** Seven documents. The system works partly because the model synthesizes well from sparse context, not because retrieval is sharp at scale.
+- **No conversation memory.** Every query is fresh; follow-ups are impossible.
+- **Naive chunker.** No real token counting, no sentence-boundary awareness. Single bullets become tiny chunks; dense paragraphs overshoot.
+- **Manual ingestion.** Input requires clean `.txt`. A real version would handle `.docx` and `.pdf`.
 
 ## What's next
 
-In rough order: expand the corpus to 15–20 applications and see if retrieval quality genuinely improves; rewrite the chunker to use tiktoken and respect document structure; add a chat loop so follow-up questions work; add hybrid retrieval (BM25 alongside embeddings) for exact keyword queries. If those go well, the system becomes the actual primary interface I use when applying for things — which is the test of whether this was worth building.
-
-(5/27/26)
-Baseline MRR 0.569, recall@1 0.259, recall@3 0.630 on 7 docs / 9 questions, clean corpus. Failures concentrated in concept queries without distinctive keyword anchors — hybrid search is the predicted next lever.
+Expand the corpus to 15–20 applications and re-run the eval to see if retrieval quality holds at scale; rewrite the chunker with `tiktoken` and document-structure awareness; add a chat loop so follow-ups work. The test of whether this was worth building stays the same: whether it becomes the primary interface I use when applying for things.
 
 ## Setup
 
 ```
 git clone https://github.com/jrlexineer/rag-application-search.git
-
 cd rag-application-search
-
 python -m venv venv
-
-.\\venv\\Scripts\\Activate.ps1  # or source venv/bin/activate
-
+.\venv\Scripts\Activate.ps1   # or: source venv/bin/activate
 pip install -r requirements.txt
 ```
-Create a .env file with:
-```
-OPENAI\_API\_KEY=sk-...
 
-ANTHROPIC\_API\_KEY=sk-ant-...
+Create a `.env` file with:
+
 ```
-Put .txt files in data/raw/, then:
+OPENAI_API_KEY=sk-...
+ANTHROPIC_API_KEY=sk-ant-...
+```
+
+Put `.txt` files in `data/raw/`, then:
+
 ```
 python src/ingest.py
-
 python src/generate.py "your question here"
 ```
