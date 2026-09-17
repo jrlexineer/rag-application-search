@@ -17,7 +17,7 @@ Per-query failure analysis on the baseline showed misses concentrated in one pat
 
 ## Why this corpus
 
-Most RAG tutorials use Paul Graham essays or Wikipedia dumps. I wanted something I actually needed to query — questions like "which cover letters mention dbt" or "what eval framings have I used across applications" had real stakes for me. The corpus started at three documents and grew to seven by evaluation time. Small on purpose: small enough to read every retrieved result by hand and judge whether the system was actually working.
+I wanted something I actually needed to query — questions like "which cover letters mention dbt" or "what eval framings have I used across applications" had real stakes for me. The corpus started at three documents and grew to seven by evaluation time. Small on purpose: small enough to read every retrieved result by hand and judge whether the system was actually working.
 
 ## How it works
 
